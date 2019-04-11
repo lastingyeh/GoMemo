@@ -1,6 +1,6 @@
 ## Golang learning memo
 
-#### NarcissisticNumber
+#### narcissisticNumber
 
 * find the rule Following example from 100 ~ 999 and print
 
@@ -37,6 +37,20 @@
 * swap: pass ref to swap
 
 * updateDiff: difference from byValue and byRef
+
+---
+
+#### fib
+
+* use channel implement fibonacci number
+
+---
+
+#### overtime
+
+* time.After usage
+
+---
 
 ### Go Refs.
 
