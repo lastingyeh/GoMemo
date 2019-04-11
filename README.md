@@ -1,0 +1,4 @@
+### Golang learning memo
+
+#### NarcissisticNumber
+
