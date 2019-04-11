@@ -30,6 +30,14 @@
 
 ---
 
+#### byRef
+
+* slice: pass ref to function and print as if updated.
+
+* swap: pass ref to swap
+
+* updateDiff: difference from byValue and byRef
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)
