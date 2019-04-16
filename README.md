@@ -62,13 +62,15 @@
 
 #### factorialSum
 
-* print 1!+2!+.....n!
+* print 1! + 2! + ... + n!
 
 ---
 
 #### evenAddOdd
 
 * use scanf to get type and get number for odd or even
+
+---
 
 ### Go Refs.
 
