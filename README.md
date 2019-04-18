@@ -107,7 +107,7 @@
 
 #### largeNumberAdd
 
-* simulation manual addition applied in large number
+* large numbers of manual addition simulation
 
 ---
 
