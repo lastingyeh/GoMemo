@@ -99,6 +99,18 @@
 
 ---
 
+#### kindTypeCounter
+
+* count the char from one string for letter, space, number and others.
+
+---
+
+#### largeNumberAdd
+
+* simulation manual addition applied in large number
+
+---
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)
