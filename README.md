@@ -79,6 +79,26 @@
 
 ---
 
+#### typefunc
+
+* polymorphism func type concept and variadic function demo
+
+---
+
+#### completeNum
+
+* input number
+
+* check range from 1 ~ number as complete (sum of factor equal number self)
+
+---
+
+#### palindromic
+
+* first letter equal last, second equal second last and so on...
+
+---
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)
