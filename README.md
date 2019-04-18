@@ -4,6 +4,7 @@
 
 * find the rule Following example from 100 ~ 999 and print
 
+
 		example: 153 = 1^3 + 5^3 + 3^3
 
 ---
@@ -69,6 +70,12 @@
 #### evenAddOdd
 
 * use scanf to get type and get number for odd or even
+
+---
+
+#### guessNumber
+
+* scanf and switch implement classical 'guessNumber'
 
 ---
 
