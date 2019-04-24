@@ -125,6 +125,14 @@
 
 ---
 
+#### lockTester
+
+* differentiation for sync.Mutex and sync.RWMutex execute performance
+
+* RWMutext usage: frequency of reading is greater than writing
+
+---
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)
