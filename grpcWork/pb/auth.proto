@@ -1,0 +1,22 @@
+// format version
+syntax = "proto3";
+// package
+// as package like ./pb
+package pb;
+
+// Service definition
+service UserAuth {
+    // Plus service
+    rpc Auth (AuthRequest) returns (IsAuth) {}
+}
+
+// CalcRequest (params)
+message AuthRequest {
+    string username = 1;
+    string password = 2;
+}
+
+// CalcReply (result)
+message IsAuth {
+    bool result = 1;
+}

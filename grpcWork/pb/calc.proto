@@ -1,0 +1,22 @@
+// format version
+syntax = "proto3";
+// package
+// as package like ./pb
+package pb;
+
+// Service definition
+service Calculator {
+    // Plus service
+    rpc Plus (CalcRequest) returns (CalcReply) {}
+}
+
+// CalcRequest (params)
+message CalcRequest {
+    int32 number_a = 1;
+    int32 number_b = 2;
+}
+
+// CalcReply (result)
+message CalcReply {
+    int32 result = 1;
+}
