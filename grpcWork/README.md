@@ -1,16 +1,16 @@
 ### GRPC
 
-#### [Prerequisite install](http://google.github.io/proto-lens/installing-protoc.html)
+#### 1. [Prerequisite install](http://google.github.io/proto-lens/installing-protoc.html)
 
     $ brew install protobuf
     
-#### [Install pkg install](https://github.com/grpc/grpc-go)
+#### 2. [Install pkg install](https://github.com/grpc/grpc-go)
 
     $ go get -u google.golang.org/grpc
     
     $ go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
     
-#### create *.proto
+#### 3. Create file '*.proto'
 
 ```protobuf
 // format version
@@ -36,18 +36,18 @@ message CalcReply {
 }
 ```
 
-#### File structure (original)
+#### 4. File structure (original)
 
     |- client
     |- pb
     |  |-*.proto
     |- server
 
-#### Translate *.proto to *.go
+#### 5. Translate *.proto to *.go
 
     $ ./pb protoc --go_out=plugins=grpc:. *.proto
        
-#### File structure (new)
+#### 6. File structure (new)
  
     |- client
     |- pb
@@ -55,11 +55,15 @@ message CalcReply {
     |  |_*.proto
     |- server
     
-### Implement client/server
+#### 7. Implement
 
-    see code
+[client](https://github.com/lastingyeh/GoMemo/blob/master/grpcWork/client/main.go)
+
+[server](https://github.com/lastingyeh/GoMemo/blob/master/grpcWork/server/main.go)
 
 ---
+
+### Refs
 
 1.[API 文件就是你的伺服器，REST 的另一個選擇：gRPC](https://yami.io/grpc/)
 
