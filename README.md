@@ -151,6 +151,12 @@
 
 ---
 
+#### linkList
+
+* implement: push, find, insert, unshift, count, interator
+
+---
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)
