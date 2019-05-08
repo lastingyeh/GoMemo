@@ -32,13 +32,17 @@ func main() {
 	p.push(&Student{Name: "last", Age: 99, Score: 100})
 	fmt.Printf("after push - count: %d\n", p.count(true)) //11
 
-	//insert
-	p.insert(0, &Student{Name: "insert", Age: 50, Score: 50})
+	//insert by index
+	p.insert(index, &Student{Name: "insert", Age: 50, Score: 50})
 	fmt.Printf("after insert - count: %d\n", p.count(true))
 
 	//unshift
 	p.unshift(&Student{Name: "new head", Age: 1, Score: 1})
 	fmt.Printf("after unshift - count: %d\n", p.count(true))
+
+	//remove by index
+	fmt.Printf("remove: %+v\n", p.remove(index))
+	fmt.Printf("after remove index: %d - count: %d\n", index, p.count(true))
 }
 
 func listInit(p *Student) {
@@ -59,6 +63,10 @@ func (s *Student) push(p *Student) {
 }
 
 func (s *Student) find(index int) *Student {
+	if index < 0 || index > s.count(false)-1 {
+		panic("index out of bounds")
+	}
+
 	var n = s
 	for i := 0; i < index; i++ {
 		n = n.next
@@ -110,4 +118,24 @@ func (s *Student) count(show bool) int {
 
 func (s *Student) iterator() {
 	s.count(true)
+}
+
+func (s *Student) remove(index int) Student {
+	c := s.count(false)
+	cur := *s.find(index)
+
+	switch {
+	case index == 0:
+		next := s.find(index + 1)
+		*next, *s = *s, *next
+	case index == c-1:
+		last := s.find(c - 2)
+		last.next = nil
+	case index > 0 || index < c-1:
+		prev := s.find(index - 1)
+		prev.next = cur.next
+	default:
+		panic("index out of bounds")
+	}
+	return cur
 }
