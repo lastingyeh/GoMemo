@@ -12,11 +12,15 @@ type Student struct {
 	next  *Student
 }
 
-func main() {
-	//init data
-	p := Student{Name: "head", Age: 20, Score: 99}
-	listInit(&p)
+var p Student
 
+func init() {
+	//init data
+	p = Student{Name: "head", Age: 20, Score: 99}
+	listInit(&p)
+}
+
+func main() {
 	//count
 	fmt.Printf("count: %d\n", p.count(true)) //10
 
@@ -28,14 +32,13 @@ func main() {
 	p.push(&Student{Name: "last", Age: 99, Score: 100})
 	fmt.Printf("after push - count: %d\n", p.count(true)) //11
 
-	var p1 *Student
 	//insert
-	p1 = p.insert(0, &Student{Name: "insert", Age: 50, Score: 50})
-	fmt.Printf("after insert - count: %d\n", p1.count(true))
+	p.insert(0, &Student{Name: "insert", Age: 50, Score: 50})
+	fmt.Printf("after insert - count: %d\n", p.count(true))
 
 	//unshift
-	p1 = p1.unshift(&Student{Name: "new head", Age: 1, Score: 1})
-	fmt.Printf("after unshift - count: %d\n", p1.count(true))
+	p.unshift(&Student{Name: "new head", Age: 1, Score: 1})
+	fmt.Printf("after unshift - count: %d\n", p.count(true))
 }
 
 func listInit(p *Student) {
@@ -63,11 +66,10 @@ func (s *Student) find(index int) *Student {
 	return n
 }
 
-func (s *Student) insert(index int, p *Student) *Student {
-	var n = s
+func (s *Student) insert(index int, p *Student) {
 	switch {
 	case index <= 0:
-		n = s.unshift(p)
+		s.unshift(p)
 	case index > s.count(false)-1:
 		s.push(p)
 	default:
@@ -75,14 +77,21 @@ func (s *Student) insert(index int, p *Student) *Student {
 		p.next = prev.next
 		prev.next = p
 	}
-	return n
 }
 
-func (s *Student) unshift(p *Student) *Student {
-	var n = s
-	p.next = n
-	n = p
-	return n
+func (s *Student) unshift(p *Student) {
+	//var n = *s
+	//*p = *s
+	//*p.next = *s.next
+	//return n
+
+	//fmt.Printf("%v, %p\n", s, s)
+
+	*s, *p = *p, *s
+	s.next = p
+
+	//fmt.Printf("%v, %p\n", s, s)
+	//fmt.Printf("%v, %p\n", p, p)
 }
 
 func (s *Student) count(show bool) int {
