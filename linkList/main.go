@@ -26,10 +26,10 @@ func main() {
 
 	//find
 	index := 2
-	fmt.Printf("find index: %d, value: %+v\n", index, p.find(index))
+	fmt.Printf("find index: %d, value: %+v\n", index, p.get(index))
 
 	//push
-	p.push(&Student{Name: "last", Age: 99, Score: 100})
+	p.append(&Student{Name: "last", Age: 99, Score: 100})
 	fmt.Printf("after push - count: %d\n", p.count(true)) //11
 
 	//insert by index
@@ -37,7 +37,7 @@ func main() {
 	fmt.Printf("after insert - count: %d\n", p.count(true))
 
 	//unshift
-	p.unshift(&Student{Name: "new head", Age: 1, Score: 1})
+	p.prepend(&Student{Name: "new head", Age: 1, Score: 1})
 	fmt.Printf("after unshift - count: %d\n", p.count(true))
 
 	//remove by index
@@ -57,12 +57,12 @@ func listInit(p *Student) {
 	}
 }
 
-func (s *Student) push(p *Student) {
-	last := s.find(s.count(false) - 1)
+func (s *Student) append(p *Student) {
+	last := s.get(s.count(false) - 1)
 	last.next = p
 }
 
-func (s *Student) find(index int) *Student {
+func (s *Student) get(index int) *Student {
 	if index < 0 || index > s.count(false)-1 {
 		panic("index out of bounds")
 	}
@@ -77,29 +77,19 @@ func (s *Student) find(index int) *Student {
 func (s *Student) insert(index int, p *Student) {
 	switch {
 	case index <= 0:
-		s.unshift(p)
+		s.prepend(p)
 	case index > s.count(false)-1:
-		s.push(p)
+		s.append(p)
 	default:
-		prev := s.find(index - 1)
+		prev := s.get(index - 1)
 		p.next = prev.next
 		prev.next = p
 	}
 }
 
-func (s *Student) unshift(p *Student) {
-	//var n = *s
-	//*p = *s
-	//*p.next = *s.next
-	//return n
-
-	//fmt.Printf("%v, %p\n", s, s)
-
+func (s *Student) prepend(p *Student) {
 	*s, *p = *p, *s
 	s.next = p
-
-	//fmt.Printf("%v, %p\n", s, s)
-	//fmt.Printf("%v, %p\n", p, p)
 }
 
 func (s *Student) count(show bool) int {
@@ -116,23 +106,23 @@ func (s *Student) count(show bool) int {
 	return c
 }
 
-func (s *Student) iterator() {
+func (s *Student) toString() {
 	s.count(true)
 }
 
 func (s *Student) remove(index int) Student {
 	c := s.count(false)
-	cur := *s.find(index)
+	cur := *s.get(index)
 
 	switch {
 	case index == 0:
-		next := s.find(index + 1)
+		next := s.get(index + 1)
 		*next, *s = *s, *next
 	case index == c-1:
-		last := s.find(c - 2)
+		last := s.get(c - 2)
 		last.next = nil
 	case index > 0 || index < c-1:
-		prev := s.find(index - 1)
+		prev := s.get(index - 1)
 		prev.next = cur.next
 	default:
 		panic("index out of bounds")
