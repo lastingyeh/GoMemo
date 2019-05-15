@@ -171,9 +171,11 @@
 
 #### loadBalance
 
-* load balance extensions
+* load balance
 
 * interface implement
+
+* easy to extend loadBalance algorithm
 
 ---
 
