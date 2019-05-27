@@ -209,6 +209,18 @@
 
 ---
 
+#### httpNotes
+
+* simple http handler
+
+* form parser handler
+
+* middleware for handling panic
+
+* template render with dynamic vars.
+
+---
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Title}}</title>
+    <style>
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<h2>1. Basic</h2>
+<p>{{.Name}}</p>
+<p>{{.Age}}</p>
+<hr>
+<h2>2. If</h2>
+{{if gt .Age 18}}
+    <p> greater than 18 </p>
+{{else}}
+    <p> less than or equals 18 </p>
+{{end}}
+<hr>
+<div>
+    <h2>3. Range</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th>StartDate</th>
+        </tr>
+        {{ range .Courses }}
+            <tr>
+                <td>{{.id}}</td>
+                <td>{{.course}}</td>
+                <td>{{.date}}</td>
+            </tr>
+        {{ end }}
+    </table>
+</div>
+</body>
+</html>
