@@ -225,6 +225,14 @@
 
 * CRUD with mySQL database
 
+---
+
+#### ctx-timeout
+
+* handle http get timeout
+
+---
+
 ### Go Refs.
 
 1. [Learn How To Code: Google's Go (golang) Programming Language](https://www.udemy.com/learn-how-to-code)
